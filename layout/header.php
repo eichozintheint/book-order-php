@@ -30,7 +30,13 @@
                         session_start();
                         $loggedin_user_id=$_SESSION['user_id'];
 
-                        $cartList_count=count($_SESSION['cartList']);
+                        // $cartList_count=count($_SESSION['cartList']);
+
+                        if(isset($_SESSION['cartListCount'])){
+                          $cartList_count=$_SESSION['cartListCount'];
+                        }else{
+                          $cartList_count=0;
+                        }
 
                         if(isset($loggedin_user_id))
                         {

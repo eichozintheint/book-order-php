@@ -4,8 +4,6 @@ include_once 'layout/header.php';
 include_once 'controller/BookController.php';
 include_once 'controller/AuthorController.php';
 
-
-
 $author_id=$_GET['id'];
 
 $author_controller=new AuthorController();
@@ -32,7 +30,7 @@ $books=$book_controller->getBooksByAuthor($author_id);
             
         </aside>
         <main class="sidebar-content">
-            <!-- <h2> James</h2> -->
+            <h2> <?php echo $books[$author_id]['author']; ?></h2>
             <div class="d-flex flex-wrap">
                 <?php
                 foreach($books as $book)
@@ -45,11 +43,12 @@ $books=$book_controller->getBooksByAuthor($author_id);
                             data-category="<?php echo $book['category'] ?>"
                             data-price="<?php echo $book['price'] ?>"
                         >
-                                <h3>Book ID : <?php echo $book['id'] ?></h3>
-                                <h3>Book Title : <?php echo $book['title'] ?></h3>
+                                <!-- <h3>Book ID : <?php echo $book['id'] ?></h3> -->
+                                <h5><?php echo $book['title'] ?></h5><br/>
+                                <img src="BookImages/<?php echo $book['image'] ?>" width='100px' height='100px' alt=""><br/>
                                 <p>Description : <?php echo $book['description'] ?></p>
                                 <p>Category : <?php echo $book['category'] ?></p>
-                                <p>Author : <b><?php echo $book['author'] ?></b></p>
+                                <p class="text-danger">Author : <b><?php echo $book['author'] ?></b></p>
                                 <p>Publisher : <?php echo $book['publisher'] ?></p>
                                 <p>Status : <?php echo $book['status'] ?></p>
                                 <p>Price : <?php echo $book['price'] ?></p>

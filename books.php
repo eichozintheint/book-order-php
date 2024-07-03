@@ -10,7 +10,7 @@ $books=$book_controller->getBooks();
 
 <div class="main">
 <main class="sidebar-content">
-            <!-- <h2> James</h2> -->
+            <h2>All Books</h2>
             <div class="d-flex flex-wrap">
                 <?php
                 foreach($books as $book)
@@ -23,8 +23,9 @@ $books=$book_controller->getBooks();
                             data-category="<?php echo $book['category'] ?>"
                             data-price="<?php echo $book['price'] ?>"
                         >
-                                <h3>Book ID : <?php echo $book['id'] ?></h3>
-                                <h3>Book Title : <?php echo $book['title'] ?></h3>
+                                <!-- <h3>Book ID : <?php echo $book['id'] ?></h3> -->
+                                <h5><?php echo $book['title'] ?></h5><br/>
+                                <img src="BookImages/<?php echo htmlspecialchars($book['image']) ?>" width='100px' height='100px' alt=""><br/>
                                 <p>Description : <?php echo $book['description'] ?></p>
                                 <p>Category : <?php echo $book['category'] ?></p>
                                 <p>Author : <b><?php echo $book['author'] ?></b></p>
@@ -55,11 +56,11 @@ $books=$book_controller->getBooks();
                         </div>
                     <?php
                 }
-            ?>
+                    ?>
             </div>
             </div>
             
-        </main>
+</main>
 </div>
 
 <!-- <div class="container">

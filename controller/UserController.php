@@ -31,6 +31,14 @@ class UserController{
     public function getLoggedInUser($loggedin_user_id){
         return $this->user->getLoggedInUser($loggedin_user_id);
     }
+
+    public function getUsers(){
+        return $this->user->getUsers();
+    }
+
+    public function deleteUser($user_id){
+        return $this->user->deleteUser($user_id);
+    }
 }
 
 ?>

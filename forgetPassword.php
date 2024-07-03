@@ -48,7 +48,7 @@ if(isset($_POST['passwordResetBtn'])){
                     echo "<script>alert('Error in sending mail')</script>";
                 }
             }else{
-                $user_not_find_err='We can\'t find a user with that email address';
+                // $user_not_find_err='We can\'t find a user with that email address';
             }
         }
 

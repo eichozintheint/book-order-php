@@ -1,13 +1,13 @@
        <!-- footer -->
-       <footer>
-          <div class="copy-right">
+      <!-- <footer> -->
+          <!-- <div class="copy-right">
             <div class="copyright-container inner">
-              <!-- <p>Copyright &copy; 2013 Domain Name - All Rights Reserved</p>
-              <p>Template by OS Templates</p>  -->
+              <p>Copyright &copy; 2013 Domain Name - All Rights Reserved</p>
+              <p>Template by OS Templates</p> 
               <p> FOOTER</p>
             </div>              
           </div>
-        </footer>
+        </footer> -->
         <!-- /footer -->
     </div>
     <!-- /container -->

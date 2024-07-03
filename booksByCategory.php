@@ -1,8 +1,8 @@
 <?php
 session_start();
 include_once 'layout/header.php';
-include_once 'controller/CategoryController.php';
 include_once 'controller/BookController.php';
+include_once 'controller/CategoryController.php';
 
 $category_id=$_GET['id'];
 
@@ -30,23 +30,35 @@ $books=$book_controller->getBooksByCategory($category_id);
             
         </aside>
         <main class="sidebar-content">
-            <!-- <h2> James</h2> -->
+        <?php
+            // if (isset($books[$category_id]['category'])) {
+            //     echo "<h2>{$books[$category_id]['category']}</h2>";
+            // } else {
+            //     echo "<h2>Category not found.</h2>";
+            // }
+            
+        ?>
             <div class="d-flex flex-wrap">
+                
                 <?php
+                if(empty($books)){
+                    echo "<div>No books for this category!</div>";
+                }
                 foreach($books as $book)
                 {
                     ?>
-                        <div class="card m-3 bg-light col-md-3" style="width: 23rem;">
+                    <div class="card m-3 bg-light col-md-3" style="width: 23rem;">
                         <div class="card-body card" 
                             data-id="<?php echo $book['id'] ?>"
                             data-title="<?php echo $book['title'] ?>"
                             data-category="<?php echo $book['category'] ?>"
                             data-price="<?php echo $book['price'] ?>"
                         >
-                                <h3>Book ID : <?php echo $book['id'] ?></h3>
-                                <h3>Book Title : <?php echo $book['title'] ?></h3>
+                                <!-- <h3>Book ID : <?php echo $book['id'] ?></h3> -->
+                                <h5><?php echo $book['title'] ?></h5><br/>
+                                <img src="BookImages/<?php echo $book['image'] ?>" width='100px' height='100px' alt=""><br/>
                                 <p>Description : <?php echo $book['description'] ?></p>
-                                <p>Category : <?php echo $book['category'] ?></p>
+                                <p class="text-danger">Category : <?php echo $book['category'] ?></p>
                                 <p>Author : <b><?php echo $book['author'] ?></b></p>
                                 <p>Publisher : <?php echo $book['publisher'] ?></p>
                                 <p>Status : <?php echo $book['status'] ?></p>
@@ -72,10 +84,10 @@ $books=$book_controller->getBooksByCategory($category_id);
                                     }
                                 ?>
                         </div>
-                        </div>
+                    </div>
                     <?php
                 }
-            ?>
+                ?>
             </div>
             </div>
             

@@ -63,6 +63,9 @@ $orderDetail_controller=new OrderDetailController();
 
 
 if(isset($_POST['confirmOrderInfo'])){
+    if(isset($_SESSION['cartListCount'])){
+        $_SESSION['cartListCount']=0;
+    }
     $error=false;
 
     if(!empty($_POST['receiver_name'])){
@@ -107,7 +110,6 @@ if(isset($_POST['confirmOrderInfo'])){
     if(!$error){
         $status=$order_controller->addOrder($user_id,$township_id,$receiver_name,$receiver_phone,$receiver_address,$payment_typeId,$totalPrice,$totalQty,$total);
         if($status){
-
             $order_id=$order_controller->getLastInsertedId();
             foreach($books as $index=>$book_id){
                 $book_qty=$book_qtys[$index];
@@ -130,7 +132,14 @@ if(isset($_POST['confirmOrderInfo'])){
             if(isset($_SESSION['book_qtys'])){
                 unset($_SESSION['book_qtys']);
             }
-            // header('location:index.php?order_status=success');
+
+
+            echo "<script>
+                    alert('Thank you for your order. Please check your email');
+                    window.location.href = 'index.php';
+                </script>";
+
+            
         }
     }
     

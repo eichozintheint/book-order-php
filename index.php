@@ -40,6 +40,7 @@ if(isset($_GET['order_status']) && $_GET['order_status']=="success"){
     <link rel="stylesheet" href="css/slick.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
 </head>
 <body>
   <!-- container -->
@@ -57,7 +58,13 @@ if(isset($_GET['order_status']) && $_GET['order_status']=="success"){
                       <li><a href="category.php">CATEGORYS</a></li>
                       <li><a href="books.php">BOOK NAME</a></li>
                       <?php
-                        $cartList_count=count($_SESSION['cartList']);
+                      // session_start();
+                        
+                      if(isset($_SESSION['cartListCount'])){
+                        $cartList_count=$_SESSION['cartListCount'];
+                      }else{
+                        $cartList_count=0;
+                      }
                       
                         if(isset($loggedin_user_id))
                         {
@@ -187,25 +194,25 @@ if(isset($_GET['order_status']) && $_GET['order_status']=="success"){
             <h3><span>BOOK NAME</span></h3>
             <div class="display-service">
               <div class="service-item">
-                <img src="img/service.png" alt="service">              
-                 <h4 class="service-title">SERVICE TITLE</h4>
+                <img src="BookImages/1719730340computer.jpg" width="225px" height="200px" alt="service">              
+                 <h5 class="service-title">COMPUTER AND INTERNET</h5>
                  <P class="service-text">Vestassapede et donec ut est libe ros sus et eget sed eget quisq ueta habitur augue
                   Vestassapede et donec ut est libe ros sus et eget sed eget quisq ueta habitur augue
                  </P>
               </div>
               <div class="service-item">
-                <img src="img/service.png" alt="service">              
-                 <h4 class="service-title">SERVICE TITLE</h4>
+              <img src="BookImages/1719731755children.jpg" width="225px" height="200px" alt="service">              
+              <h5 class="service-title">SAY MY NAME CHILDERN BOOK</h5>
                  <P class="service-text">Vestassapede et donec ut est libe ros sus et eget sed eget quisq ueta habitur augue</P>
               </div>
               <div class="service-item">
-                <img src="img/service.png" alt="service">              
-                 <h4 class="service-title">SERVICE TITLE</h4>
+              <img src="BookImages/1719731605cooking.jpg" width="225px" height="200px" alt="service">              
+              <h5 class="service-title">ROALD DAHL'S COOKBOOK</h5>
                  <P class="service-text">Vestassapede et donec ut est libe ros sus et eget sed eget quisq ueta habitur augue</P>
               </div>
               <div class="service-item">
-                <img src="img/service.png" alt="service">              
-                 <h4 class="service-title">SERVICE TITLE</h4>
+              <img src="BookImages/1719731171education.jpg" width="225px" height="200px" alt="service">              
+              <h5 class="service-title">PERSPECITVE IN EDUCATION</h5>
                  <P class="service-text">Vestassapede et donec ut est libe ros sus et eget sed eget quisq ueta habitur augue</P>
               </div>
             </div>
@@ -214,54 +221,20 @@ if(isset($_GET['order_status']) && $_GET['order_status']=="success"){
          <!-- /content -->
          <!-- footer -->
         <footer>
-          <!-- <div class="site-info inner">
-            <div class="site-01">              
-                <h3>From The Blog</h3>
-                <h4>Post Title</h4>
-                <h5 class="color"><span>Admin</span>, domainname.com</h5>
-                <p class="date color">Friday, 6th April 2000</p>
-                <p class="site-p color">Vestibulumaccumsan egestibulum eu justo convallis augue estas aenean elit intesque sed. Facilispede estibulum nulla orna nisl velit elit ac aliquat non tincidunt. Namjusto cras urna urnaretra lor urna neque sed quis orci nulla. <span><a href="#">Read More</a></span></p>                            
-                
-              </div>
-            <div class="site-02">
-              <h3 class="color">Quick Links</h3>
-              <div class="site-ul">
-                <ul>
-                  <li> <a href=""> Lorem ipsum dolor sit</a></li>
-                  <li> <a href=""> Amet consectetur</a></li>
-                  <li> <a href=""> Praesent vel sem id</a></li>
-                  <li> <a href=""> Curabitur hendrerit est</a></li>
-                  <li> <a href=""> Aliquam eget erat nec sapien</a></li>
-                  <li> <a href=""> Cras id augue nunc</a></li>
-                  <li> <a href=""> Sed a nulla urna</a></li>
-                </ul>
-              </div>
+          <div class="footer">
+            <div class="location-info">
+              <h2>BookHeaven</h2>
+              <h3><i class="fa-solid fa-phone"></i> Contact : +959776762559</h3>
+              <h3><i class="fa-solid fa-envelope"></i> Email : bookheaven.gmail.com</h3>
+              <h3><i class="fa-brands fa-facebook"></i> Facebook : https://www.facebook.com/bookheavenonlinebooksales</h3>
+              <h3><i class="fa-solid fa-location-dot"></i> Location : Kyauk Myaung Street,Tamwe Township,Yangon</h3>
             </div>
-            <div class="site-03">
-              <h3>Latest Tweets</h3>
-              <p class="color text-01"> <span>&commat;namehere</span> Justoid nonummy laoreet phasellent penatoque in antesque pellus elis eget tincidunt. Nequatdui laorem justo a non tellus laoremut vitae doloreet 1 day ago</p>
-              <p class="color text-02"><span>&commat;namehere</span> Justoid nonummy laoreet phasellent penatoque in antesque pellus elis eget tincidunt. Nequatdui laorem justo a non tellus laoremut vitae doloreet 1 day ago</p>
-            </div>
-            <div class="site-04">
-              <h3>Contact Us</h3>
-              <div class="site-form">
-                <form action="">
-                  <input type="text" name="" id="" placeholder="Full Name">
-                  <input type="email" placeholder="Email Address">
-                  <input type="text" placeholder="Subject">
-                  <textarea name="" id="" cols="20" rows="5" placeholder="Message"></textarea>
-                  <button>SUBMIT</button>
-                </form>
-              </div>
-            </div>
-          </div> -->
-          <div class="copy-right">
-            <div class="copyright-container inner-index-div">
-              <!-- <p>Copyright &copy; 2013 Domain Name - All Rights Reserved</p>
-              <p>Template by OS Templates</p>  -->
-              <p> FOOTER</p>
-              <p>FOOTER</p>
-            </div>              
+          </div>
+          <div class="location-map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5139.762724409611!2d96.17463782474205!3d16.803543929911534!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30c1ecc8f3749e61%3A0x9e8be4b57c0f92d1!2sTamwe%20Township%2C%20Yangon!5e0!3m2!1sen!2smm!4v1719507155869!5m2!1sen!2smm" width="500" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+          <div class="copyright">
+            <p>Copyright &copy; 2024 BookHeaven - All Right Reserved</p>
           </div>
         </footer>
         <!-- /footer -->

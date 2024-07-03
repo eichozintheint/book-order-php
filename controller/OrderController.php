@@ -15,5 +15,22 @@ class OrderController{
     public function getLastInsertedId(){
         return $this->order->getLastInsertedId();
     }
+
+    public function getOrders()
+    {
+        return $this->order->getOrders();
+    }
+
+    public function updateStatus($order_id){
+        return $this->order->updateStatus($order_id);
+    }
+
+    public function deleteOrder($orderId){
+        return $this->order->deleteOrder($orderId);
+    }
+
+    public function getOrderInformation($order_id){
+        return $this->order->getOrderInformation($order_id);
+    }
 }
 ?>

@@ -6,17 +6,20 @@ session_start();
 if (isset($_GET['remove'])) {
     $id = $_GET['remove'];
 
-    // Find and remove item with the given id
+   
     foreach ($_SESSION['cartList'] as $key => $item) {
         if ($item['id'] == $id) {
             unset($_SESSION['cartList'][$key]);
-            // Reindex the array to prevent issues with consecutive unsets
-            $_SESSION['cartList'] = array_values($_SESSION['cartList']);
+            // $_SESSION['cartList'] = array_values($_SESSION['cartList']);
             break;
         }
     }
 
-    header('Location: cartList.php'); // Redirect to refresh the page and apply changes
+    $_SESSION['cartList'] = array_values($_SESSION['cartList']);
+
+    $_SESSION['cartListCount'] = count($_SESSION['cartList']);
+
+    header('Location: cartList.php'); 
     exit();
 }
 

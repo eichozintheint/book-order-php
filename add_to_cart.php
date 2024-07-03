@@ -18,6 +18,9 @@ if (!isset($_SESSION['cartList'])) {
 
 array_push($_SESSION['cartList'],$cartList);
 
+$cartList_count = isset($_SESSION['cartList']) ? count($_SESSION['cartList']) : 0;
+$_SESSION['cartListCount']=$cartList_count;
+
 echo "success";
 ?>
 

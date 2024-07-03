@@ -27,7 +27,6 @@ function addBookToCart(event){
         success:function(response){
             if(response)
             {
-                // bookCount.innerHTML++
                 alert('Book is added to cart!')
                 console.log('Book is added to cart!')
                 window.location.href=currentPage

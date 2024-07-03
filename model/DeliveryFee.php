@@ -13,5 +13,16 @@ class DeliveryFee{
             return $delivery_fees;
         }
     }
+
+    public function getDeliveryFee($township_id){
+        $this->con=Database::connect();
+        $sql='select price from delivery_fees where township_id=:township_id';
+        $this->statement=$this->con->prepare($sql);
+        $this->statement->bindParam(':township_id',$township_id);
+        if($this->statement->execute()){
+            $result=$this->statement->fetch(PDO::FETCH_ASSOC);
+            return $result;
+        }
+    }
 }
 ?>
